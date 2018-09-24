@@ -29,6 +29,13 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>net.wasdev.maven.tools.targets</groupId>
+            <artifactId>java-specs</artifactId>
+            <version>RELEASE</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -81,5 +88,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>

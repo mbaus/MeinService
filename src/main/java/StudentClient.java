@@ -11,6 +11,8 @@ public final class StudentClient {
 
   public static void main(String args[]) throws Exception {
 
+    //For tracing the SOAP message
+
     JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 
     factory.setServiceClass(ChangeStudentDetails.class);

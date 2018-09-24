@@ -1,11 +1,17 @@
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:cxf="http://cxf.apache.org/core"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:cxf="http://cxf.apache.org/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
        xsi:schemaLocation="http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
-
-  <bean class="org.apache.cxf.interceptor.LoggingInInterceptor" id="logInInterceptor" />
-  <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor" id="logOutInterceptor" />
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+  <bean id="abstractLogInterceptor" abstract="true">
+    <property name="prettyLogging" value="true" />
+  </bean>
+  <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"
+        id="logInInterceptor" parent="abstractLogInterceptor" />
+  <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"
+        id="logOutInterceptor" parent="abstractLogInterceptor" />
   <cxf:bus>
     <cxf:inInterceptors>
       <ref bean="logInInterceptor" />
@@ -14,8 +20,6 @@ http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
       <ref bean="logOutInterceptor" />
     </cxf:outInterceptors>
   </cxf:bus>
-
   <jaxws:endpoint id="changeStudent"
                   implementor="com.student.ChangeStudentDetailsImpl" address="/ChangeStudent" />
-
 </beans>

@@ -7,3 +7,10 @@ AdminApp.install('C:/fakepath/MeinService-1.0-SNAPSHOT.war', '[ -usedefaultbindi
 
 AdminControl.invoke('WebSphere:name=ApplicationManager,process=server1,platform=proxy,node=DefaultNode02,version=9.0.0.8,type=ApplicationManager,mbeanIdentifier=ApplicationManager,cell=DefaultCell02,spec=1.0', 'startApplication', '[MeinService-1_0-SNAPSHOT_war]')
 
+
+AdminControl.invoke('WebSphere:name=ApplicationManager,process=server1,platform=proxy,node=DefaultNode02,version=9.0.0.8,type=ApplicationManager,mbeanIdentifier=ApplicationManager,cell=DefaultCell02,spec=1.0', 'stopApplication', '[MeinService-1_0-SNAPSHOT_war]')
+
+AdminApp.uninstall('MeinService-1_0-SNAPSHOT_war')
+
+AdminApp.install('C:/fakepath/MeinService-1.0-SNAPSHOT.war', '[ -usedefaultbindings -defaultbinding.virtual.host default_host -defaultbinding.force -defaultbinding.ee.defaults -preCompileJSPs -distributeApp -nouseMetaDataFromBinary -deployejb -appname MeinService-1_0-SNAPSHOT_war -createMBeansForResources -reloadEnabled -reloadInterval 10 -deployws -validateinstall warn -processEmbeddedConfig -filepermission .*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755 -noallowDispatchRemoteInclude -noallowServiceRemoteInclude -asyncRequestDispatchType SERVER_SIDE -useAutoLink -noenableClientModule -clientMode isolated -novalidateSchema -contextroot /poc -MapModulesToServers [[ MeinService-1.0-SNAPSHOT.war MeinService-1.0-SNAPSHOT.war,WEB-INF/web.xml WebSphere:cell=DefaultCell02,node=DefaultNode02,server=server1 ]] -MetadataCompleteForModules [[ MeinService-1.0-SNAPSHOT.war MeinService-1.0-SNAPSHOT.war,WEB-INF/web.xml true ]] -CtxRootForWebMod [[ MeinService-1.0-SNAPSHOT.war MeinService-1.0-SNAPSHOT.war,WEB-INF/web.xml /poc ]]]' )
+

@@ -8,12 +8,14 @@ http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
   <bean id="abstractLogInterceptor" abstract="true">
     <property name="prettyLogging" value="true" />
   </bean>
+  <bean class="com.student.ServiceResponseInterceptor" id="ServiceRequestInterceptor" />
   <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"
         id="logInInterceptor" parent="abstractLogInterceptor" />
   <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"
         id="logOutInterceptor" parent="abstractLogInterceptor" />
   <cxf:bus>
     <cxf:inInterceptors>
+      <ref bean="ServiceRequestInterceptor" />
       <ref bean="logInInterceptor" />
     </cxf:inInterceptors>
     <cxf:outInterceptors>

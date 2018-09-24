@@ -1,0 +1,9 @@
+AdminConfig.modify('(cells/DefaultCell02/nodes/DefaultNode02/servers/server1|server.xml#JavaVirtualMachine_1183122130078)', '[[debugMode "true"]]')
+AdminConfig.create('DebugService', AdminConfig.getid('/Cell:DefaultCell02/Node:DefaultNode02/Server:server1/'), '[[BSFDebugPort "4444"] [enable "true"] [jvmDebugPort "7777"] [jvmDebugArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=7777"] [debugClassFilters ""] [BSFLoggingLevel "0"]]')
+
+AdminConfig.modify('(cells/DefaultCell02/nodes/DefaultNode02/servers/server1|server.xml#DebugService_1537819577510)', '[[BSFDebugPort "4444"] [enable "true"] [jvmDebugPort "7777"] [jvmDebugArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=7777"] [debugClassFilters "de.*"] [BSFLoggingLevel "0"]]')
+
+AdminApp.install('C:/fakepath/MeinService-1.0-SNAPSHOT.war', '[ -usedefaultbindings -defaultbinding.virtual.host default_host -defaultbinding.force -defaultbinding.ee.defaults -preCompileJSPs -distributeApp -nouseMetaDataFromBinary -nodeployejb -appname MeinService-1_0-SNAPSHOT_war -createMBeansForResources -reloadEnabled -deployws -validateinstall warn -processEmbeddedConfig -filepermission .*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755 -noallowDispatchRemoteInclude -noallowServiceRemoteInclude -asyncRequestDispatchType SERVER_SIDE -nouseAutoLink -enableClientModule -clientMode isolated -novalidateSchema -contextroot /poc -MapModulesToServers [[ MeinService-1.0-SNAPSHOT.war MeinService-1.0-SNAPSHOT.war,WEB-INF/web.xml WebSphere:cell=DefaultCell02,node=DefaultNode02,server=server1 ]] -CtxRootForWebMod [[ MeinService-1.0-SNAPSHOT.war MeinService-1.0-SNAPSHOT.war,WEB-INF/web.xml /poc ]]]' )
+
+AdminControl.invoke('WebSphere:name=ApplicationManager,process=server1,platform=proxy,node=DefaultNode02,version=9.0.0.8,type=ApplicationManager,mbeanIdentifier=ApplicationManager,cell=DefaultCell02,spec=1.0', 'startApplication', '[MeinService-1_0-SNAPSHOT_war]')
+

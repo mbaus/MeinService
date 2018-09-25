@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="74a3be78-e5ec-4454-8cbb-576b799582a9" activeEnvironment="Default" name="ChangeStudent" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="a499a9f5-05fa-4a37-bf59-12bc4dfff345" wsaVersion="NONE" name="ChangeStudentDetailsImplServiceSoapBinding" type="wsdl" bindingName="{http://student.com/}ChangeStudentDetailsImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9080/poc/ChangeStudent?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9080/poc/ChangeStudent?wsdl"><con:part><con:url>http://localhost:9080/poc/ChangeStudent?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ChangeStudentDetailsImplService" targetNamespace="http://student.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://student.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://student.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="changeName" type="tns:changeName"/>
+      <xs:element name="changeNameResponse" type="tns:changeNameResponse"/>
+      <xs:complexType name="changeName">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:student"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="student">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeNameResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:student"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="changeNameResponse">
+    <wsdl:part element="tns:changeNameResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeName">
+    <wsdl:part element="tns:changeName" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ChangeStudentDetails">
+    <wsdl:operation name="changeName">
+      <wsdl:input message="tns:changeName" name="changeName"></wsdl:input>
+      <wsdl:output message="tns:changeNameResponse" name="changeNameResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ChangeStudentDetailsImplServiceSoapBinding" type="tns:ChangeStudentDetails">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="changeName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="changeName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="changeNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChangeStudentDetailsImplService">
+    <wsdl:port binding="tns:ChangeStudentDetailsImplServiceSoapBinding" name="ChangeStudentDetailsImplPort">
+      <soap:address location="http://localhost:9080/poc/ChangeStudent"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9080/poc/ChangeStudent</con:endpoint></con:endpoints><con:operation id="2f042585-b853-4748-8cb8-dbcdffae6222" isOneWay="false" action="" name="changeName" bindingOperationName="changeName" type="Request-Response" outputName="changeNameResponse" inputName="changeName" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8bce632b-0134-43b1-9bbd-34e5b8f68491" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/poc/ChangeStudent</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stud="http://student.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <stud:changeName>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <name>Mac Gyver</name>
+         </arg0>
+      </stud:changeName>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://student.com/ChangeStudentDetails/changeName"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="1561e16e-1cc6-4f7e-a66c-c15159feb135" name="ChangeStudentDetailsImplServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="93188b4b-9dd6-4a4b-b0c1-22dfce7ca75e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="changeName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="159ceb69-f7d0-43b8-a33c-28b8cf5d7190" name="changeName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ChangeStudentDetailsImplServiceSoapBinding</con:interface><con:operation>changeName</con:operation><con:request name="changeName" id="515168ba-1f02-4075-bdfb-6d5c6e594a84"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/poc/ChangeStudent</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stud="http://student.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <stud:changeName>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <name>?</name>
+         </arg0>
+      </stud:changeName>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://student.com/ChangeStudentDetails/changeName" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="82cad268-e2fd-4218-ba95-5946f95e0467" name="changeName - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ChangeStudentDetailsImplServiceSoapBinding</con:interface><con:operation>changeName</con:operation><con:request name="changeName - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="fb1e8ea1-c7c6-48e0-978f-a5b91358c122"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/poc/ChangeStudent</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stud="http://student.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <stud:changeName>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <name>Mac Gyver</name>
+         </arg0>
+      </stud:changeName>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e98dc743-4209-4091-8c1f-2d8eabfeea0b" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://student.com/ChangeStudentDetails/changeName"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

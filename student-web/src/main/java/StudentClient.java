@@ -16,7 +16,7 @@ public final class StudentClient {
     JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 
     factory.setServiceClass(ChangeStudentDetails.class);
-    factory.setAddress("http://localhost:9080/poc/ChangeStudent?wsdl");
+    factory.setAddress("http://localhost:9080/ws/ChangeStudent?wsdl");
     factory.getInInterceptors().add(new LoggingInInterceptor());
     factory.getOutInterceptors().add(new LoggingOutInterceptor());
     ChangeStudentDetails client = (ChangeStudentDetails) factory.create();

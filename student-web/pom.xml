@@ -1,3 +1,4 @@
+<!--
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -42,12 +43,12 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <!-- mvn clean install tomcat:run-war to deploy
+                    < ! - - mvn clean install tomcat:run-war to deploy
                     Look for "Running war on http://xxx" and
                     "Setting the server's publish address to be /yyy"
                     in console output; WSDL browser address will be
                     concatenation of the two: http://xxx/yyy?wsdl
-                    -->
+                    - - >
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.0</version>
@@ -88,4 +89,92 @@
             </plugins>
         </pluginManagement>
     </build>
+</project>
+-->
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="
+http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd
+">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>de.dacomb.webservice</groupId>
+    <artifactId>studentWs</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>student-web</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+<!--
+  <name>${project.artifactId}</name>
+  <properties>
+     <downloadSources>true</downloadSources>
+     <downloadJavadocs>true</downloadJavadocs>
+  </properties>
+  <build>
+     <finalName>${project.artifactId}</finalName>
+     <plugins>
+        <plugin>
+           <artifactId>maven-war-plugin</artifactId>
+           <configuration>
+              <failOnMissingWebXml>false</failOnMissingWebXml>
+              <archive>
+                 <manifest>
+
+<addDefaultImplementationEntries>treu</addDefaultImplementationEntries>
+
+<addDefaultSpecificationEntries>treu</addDefaultSpecificationEntries>
+                    <addClasspath>true</addClasspath>
+                 </manifest>
+                 <manifestEntries>
+                    <DisableIBMJAXWSEngine>true</DisableIBMJAXWSEngine>
+                 </manifestEntries>
+              </archive>
+           </configuration>
+        </plugin>
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-surefire-plugin</artifactId>
+           <version>2.8.1</version>
+           <configuration>
+              <parallel>methods</parallel>
+              <threadCount>10</threadCount>
+              <excludes>
+                 <exclude>**/integrationstest/*Test.java</exclude>
+              </excludes>
+           </configuration>
+           <executions>
+              <execution>
+                 <id>integration-tests</id>
+                 <phase>integration-test</phase>
+                 <goals>
+                    <goal>test</goal>
+                 </goals>
+                 <configuration>
+                    <skip>false</skip>
+                    <excludes>
+                       <exclude>none</exclude>
+                    </excludes>
+                    <includes>
+                       <include>**/integrationstest/*Test.java</include>
+                    </includes>
+                 </configuration>
+              </execution>
+           </executions>
+        </plugin>
+     </plugins>
+  </build>
+  <dependencies>
+     <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <scope>test</scope>
+     </dependency>
+     <dependency>
+        <groupId>com.sun.xml.ws</groupId>
+        <artifactId>jaxws-rt</artifactId>
+     </dependency>
+  </dependencies>
+-->
 </project>

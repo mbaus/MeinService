@@ -1,0 +1,77 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="
+http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd
+">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>de.dacomb.webservice</groupId>
+    <artifactId>studentWs</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>student-ear</artifactId>
+  <packaging>ear</packaging>
+  <!--
+  <dependencies>
+     <dependency>
+        <groupId>de.dacomb.webservice</groupId>
+        <artifactId>student-web</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+     </dependency>
+       <dependency>
+           <groupId>com.sun.xml.ws</groupId>
+           <artifactId>jaxws-rt</artifactId>
+           <version>2.3.0</version>
+        </dependency>
+  </dependencies>
+  <build>
+     <plugins>
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-ear-plugin</artifactId>
+           <configuration>
+
+              < ! - - names directory within EAR to place jars to be in classpath - - >
+              <defaultLibBundleDir>lib</defaultLibBundleDir>
+
+              < ! - - eliminates use of version in EAR JNDI name portion - - >
+              <applicationId>StudentWebservice</applicationId>
+              < ! - - <applicationName>$ {project.artifactId}</applicationName> - - >
+              <displayName>${project.artifactId}</displayName>
+
+              <generateApplicationXml>true</generateApplicationXml>
+              <version>7</version>
+              <modules>
+                 <webModule>
+                    <groupId>de.dacomb.webservice</groupId>
+                    <artifactId>student-web</artifactId>
+                    <contextRoot>/ws</contextRoot>
+                 </webModule>
+              </modules>
+              <archive>
+                 <index>false</index>
+                 <manifest>
+
+<addDefaultImplementationEntries>treu</addDefaultImplementationEntries>
+
+<addDefaultSpecificationEntries>treu</addDefaultSpecificationEntries>
+                    <addClasspath>true</addClasspath>
+                 </manifest>
+                 <manifestEntries>
+
+<Implementation-Title>StudentWebservice</Implementation-Title>
+
+<Implementation-Version>01.00.00</Implementation-Version>
+                    <Implementation-Vendor>IBM</Implementation-Vendor>
+                    <DisableIBMJAXWSEngine>true</DisableIBMJAXWSEngine>
+                 </manifestEntries>
+              </archive>
+              <skinnyWars>true</skinnyWars>
+           </configuration>
+        </plugin>
+     </plugins>
+  </build>
+  -->
+</project>

@@ -1,5 +1,4 @@
-s<endpoints version="2.0" xmlns="
-http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+s<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
  <endpoint name="BuecherService"
    implementation="de.dacomb.webservice.ws.KripsServiceImpl"
    url-pattern="/StudentService" />
